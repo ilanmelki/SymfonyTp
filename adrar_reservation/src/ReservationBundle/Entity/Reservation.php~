@@ -1,0 +1,184 @@
+<?php
+
+namespace ReservationBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\ManyToOne as ManyToOne;
+use Doctrine\ORM\Mapping\OneToOne as OneToOne;
+use Doctrine\ORM\Mapping\JoinColumn as JoinColumn;
+/**
+ * Reservation
+ *
+ * @ORM\Table(name="reservation")
+ * @ORM\Entity(repositoryClass="ReservationBundle\Repository\ReservationRepository")
+ */
+class Reservation
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date", type="date")
+     */
+    private $date;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="horaire", type="string", length=255)
+     */
+    private $horaire;
+    /**
+     * @ManyToOne(targetEntity="Formateur")
+     * @JoinColumn(name="Formateur_id", referencedColumnName="id")
+     */
+    private $formateur;
+    /**
+     * @ManyToOne(targetEntity="Promo")
+     * @JoinColumn(name="Promo_id", referencedColumnName="id")
+     */
+    private $promo;
+    /**
+     * @ManyToOne(targetEntity="Salle")
+     * @JoinColumn(name="Salle_id", referencedColumnName="id")
+     */
+    private $salle;
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set date
+     *
+     * @param \DateTime $date
+     *
+     * @return Reservation
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    /**
+     * Get date
+     *
+     * @return \DateTime
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * Set horaire
+     *
+     * @param string $horaire
+     *
+     * @return Reservation
+     */
+    public function setHoraire($horaire)
+    {
+        $this->horaire = $horaire;
+
+        return $this;
+    }
+
+    /**
+     * Get horaire
+     *
+     * @return string
+     */
+    public function getHoraire()
+    {
+        return $this->horaire;
+    }
+
+    /**
+     * Set formateur
+     *
+     * @param \ReservationBundle\Entity\Formateur $formateur
+     *
+     * @return Reservation
+     */
+    public function setFormateur(\ReservationBundle\Entity\Formateur $formateur = null)
+    {
+        $this->formateur = $formateur;
+
+        return $this;
+    }
+
+    /**
+     * Get formateur
+     *
+     * @return \ReservationBundle\Entity\Formateur
+     */
+    public function getFormateur()
+    {
+        return $this->formateur;
+    }
+
+    /**
+     * Set promo
+     *
+     * @param \ReservationBundle\Entity\Promo $promo
+     *
+     * @return Reservation
+     */
+    public function setPromo(\ReservationBundle\Entity\Promo $promo = null)
+    {
+        $this->promo = $promo;
+
+        return $this;
+    }
+
+    /**
+     * Get promo
+     *
+     * @return \ReservationBundle\Entity\Promo
+     */
+    public function getPromo()
+    {
+        return $this->promo;
+    }
+
+    /**
+     * Set salle
+     *
+     * @param \ReservationBundle\Entity\Salle $salle
+     *
+     * @return Reservation
+     */
+    public function setSalle(\ReservationBundle\Entity\Salle $salle = null)
+    {
+        $this->salle = $salle;
+
+        return $this;
+    }
+
+    /**
+     * Get salle
+     *
+     * @return \ReservationBundle\Entity\Salle
+     */
+    public function getSalle()
+    {
+        return $this->salle;
+    }
+}

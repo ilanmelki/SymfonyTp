@@ -1,0 +1,106 @@
+<?php
+
+namespace ReservationBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Salle
+ *
+ * @ORM\Table(name="salle")
+ * @ORM\Entity(repositoryClass="ReservationBundle\Repository\SalleRepository")
+ */
+class Salle
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="numero_salle", type="integer", unique=true)
+     */
+    private $numeroSalle;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="nb_place", type="integer")
+     */
+    private $nbPlace;
+    /**
+     * string
+     *
+     *
+     * @return string
+     */
+    public function __toString()
+    {
+
+        return ' Salle n°: '.$this->numeroSalle;
+    }
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set numeroSalle
+     *
+     * @param integer $numeroSalle
+     *
+     * @return Salle
+     */
+    public function setNumeroSalle($numeroSalle)
+    {
+        $this->numeroSalle = $numeroSalle;
+
+        return $this;
+    }
+
+    /**
+     * Get numeroSalle
+     *
+     * @return int
+     */
+    public function getNumeroSalle()
+    {
+        return $this->numeroSalle;
+    }
+
+    /**
+     * Set nbPlace
+     *
+     * @param integer $nbPlace
+     *
+     * @return Salle
+     */
+    public function setNbPlace($nbPlace)
+    {
+        $this->nbPlace = $nbPlace;
+
+        return $this;
+    }
+
+    /**
+     * Get nbPlace
+     *
+     * @return int
+     */
+    public function getNbPlace()
+    {
+        return $this->nbPlace;
+    }
+}

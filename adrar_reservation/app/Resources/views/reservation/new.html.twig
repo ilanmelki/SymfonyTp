@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container mt-5">
+
+    <h2 class="text-center text-light">Créez un nouvelle réservation en remplissant les formulaire ci-dessous</h2>
+
+    <div class="container  w-25 rounded shadow p-3 mb-5 ">
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+
+        <input type="submit" class="input-group mb-3 bg-primary text-light rounded" value="ajouter une nouvelle reservation" />
+    {{ form_end(form) }}
+
+    <ul class="nav d-flex justify-content-center">
+        <li class="nav-items">
+            <a class="btn btn-info" href="{{ path('reservation_index') }}">Back to the list</a>
+        </li>
+    </ul>
+    {% if reservations is defined %}
+        {{ reservations[0].getDate() }}
+    {% endif %}
+    </div>
+</div>
+{% endblock %}

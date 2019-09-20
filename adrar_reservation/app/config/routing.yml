@@ -1,0 +1,27 @@
+reservation_planning:
+    resource: "@ReservationBundle/Controller/PlanningController.php"
+    type:     annotation
+
+reservation_formateur:
+    resource: "@ReservationBundle/Controller/FormateurController.php"
+    type:     annotation
+
+reservation_salle:
+    resource: "@ReservationBundle/Controller/SalleController.php"
+    type:     annotation
+
+reservation_reservation:
+    resource: "@ReservationBundle/Controller/ReservationController.php"
+    type:     annotation
+
+reservation_promo:
+    resource: "@ReservationBundle/Controller/PromoController.php"
+    type:     annotation
+
+reservation:
+    resource: "@ReservationBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation

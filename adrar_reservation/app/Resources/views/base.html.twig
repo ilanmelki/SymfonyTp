@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}ADRAR Reservation!{% endblock %}</title>
+        {% block stylesheets %}
+        {% endblock %}
+        {% block head_css %}
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        {% endblock %}
+        {% block head_js %}
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body >
+    <style>
+        body{background-image:url("{{ asset('images/fond.jpg') }}");background-size: cover;}
+    </style>
+    <div class="d-flex p-2 bd-highlight" style="margin-left: 22%">
+        <img src="{{ asset('images/adrar.png') }}">
+        <div>
+        <h1 class="text-center text-light">ADRAR Formations</h1>
+            <h1 class="text-center text-light">POLE NUMÉRIQUE</h1>
+
+        <h1 class="text-center text-light">Application de réservation pour formateurs</h1>
+            <h1 class="text-center text-light">Centre Du Montpellier</h1>
+        </div>
+    </div>
+    <hr>
+        {% block body %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+
+    </body>
+</html>

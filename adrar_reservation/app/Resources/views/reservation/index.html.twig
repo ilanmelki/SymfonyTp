@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container"></div>
+
+        <h1 class="text-center shadow p-3 mb-5">Reservations list</h1>
+
+
+
+    <table class="table table-striped ">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Date</th>
+                <th>Horaire( matin/après-midi)</th>
+                <th>numero de la Salle</th>
+                <th>le nom de la Promotion</th>
+                <th>nom et prenom du formateur</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for reservation in reservations %}
+            <tr>
+                <td><a href="{{ path('reservation_show', { 'id': reservation.id }) }}">{{ reservation.id }}</a></td>
+                <td>{% if reservation.date %}{{ reservation.date|date('Y-m-d') }}{% endif %}</td>
+                {% if reservation.horaire %}
+                <td>09:00-12:30</td>
+                {% else %}
+                    <td>13:30-17:00</td>
+                {% endif %}
+                <td>{{ reservation.salle }}</td>
+                <td>{{ reservation.promo }}</td>
+                <td>{{ reservation.formateur }}</td>
+                <td>
+                    <ul class="nav">
+                        <li>
+                            <a class="btn btn-sm btn-dark" href="{{ path('reservation_show', { 'id': reservation.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a class="btn btn-sm btn-success mt-2" href="{{ path('reservation_edit', { 'id': reservation.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+        </tbody>
+    </table>
+            <ul class="nav d-flex justify-content-center">
+                <li class="nav-items">
+                    <a href="{{ path('reservation_new') }}" class="nav-link">Create a new reservation</a>
+                </li>
+            </ul>
+
+
+    </div>
+{% endblock %}

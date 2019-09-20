@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container bg-info rounded mt-5">
+        <hr>
+    <h2 class="text-center text-light"> {{ erreur }} Veuillez choisir un autre créneau</h2>
+
+    <table class="table table-striped shadow p-3 mb-5 mt-5 rounded">
+
+        <tbody class="bg-success">
+        <tr>
+            <th>Id</th>
+            <td>{{ reservation.id }}</td>
+        </tr>
+        <tr>
+            <th>Date</th>
+            <td>{% if reservation.date %}{{ reservation.date|date('Y/m/d') }}{% endif %}</td>
+        </tr>
+        <tr>
+            <th>Horaire du réservation</th>
+            {% if reservation.horaire %}
+                <td>09:00-12:30</td>
+            {% else %}
+                <td>13:30-17:00</td>
+            {% endif %}
+        </tr>
+        <tr>
+            <th>Formateur</th>
+            <td>{{ reservation.formateur }}</td>
+        </tr>
+        <tr>
+            <th>la sallle du résevation</th>
+            <td>{{ reservation.salle }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    </div>
+
+{% endblock %}
